@@ -21,7 +21,7 @@
         <div id="board" class="container-fluid">
           <div v-for="keys in keyGroups">
             <div class="row">
-              <button v-for="key in keys" :class="key.type" @click="append(key.value)">{{key.value}}</button>
+              <button v-for="key in keys" :class="key.class" @click="handleClick(key.value)" v-html="key.text"></button>
             </div>
           </div>
         </div>

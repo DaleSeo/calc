@@ -4,40 +4,51 @@ var app = new Vue({
     input: '',
     keyGroups: [
       [
-        {idx: 0, type: 'btn btn-danger', value: 'C'},
-      	{idx: 1, type: 'btn btn-warning', value: '('},
-      	{idx: 2, type: 'btn btn-warning', value: ')'},
-      	{idx: 3, type: 'btn btn-success', value: '+'}
+      	{class: 'btn btn-warning', value: '(', text: '('},
+      	{class: 'btn btn-warning', value: ')', text: ')'},
+      	{class: 'btn btn-danger', value: 'D', text: '<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>'},
+        {class: 'btn btn-danger', value: 'C', text: 'C'},
       ],
       [
-      	{idx: 4, type: 'btn btn-default', value: '7'},
-      	{idx: 5, type: 'btn btn-default', value: '8'},
-      	{idx: 6, type: 'btn btn-default', value: '9'},
-      	{idx: 7, type: 'btn btn-success', value: '-'}
+      	{class: 'btn btn-default', value: '7', text: '7'},
+      	{class: 'btn btn-default', value: '8', text: '8'},
+      	{class: 'btn btn-default', value: '9', text: '9'},
+      	{class: 'btn btn-success', value: '+', text: '+'}
       ],
       [
-      	{idx: 8, type: 'btn btn-default', value: '4'},
-      	{idx: 9, type: 'btn btn-default', value: '5'},
-      	{idx: 10, type: 'btn btn-default', value: '6'},
-      	{idx: 11, type: 'btn btn-success', value: '*'}
+      	{class: 'btn btn-default', value: '4', text: '4'},
+      	{class: 'btn btn-default', value: '5', text: '5'},
+      	{class: 'btn btn-default', value: '6', text: '6'},
+      	{class: 'btn btn-success', value: '-', text: '-'}
       ],
       [
-      	{idx: 12, type: 'btn btn-default', value: '1'},
-      	{idx: 13, type: 'btn btn-default', value: '2'},
-      	{idx: 14, type: 'btn btn-default', value: '3'},
-      	{idx: 15, type: 'btn btn-success', value: '/'}
+      	{class: 'btn btn-default', value: '1', text: '1'},
+      	{class: 'btn btn-default', value: '2', text: '2'},
+      	{class: 'btn btn-default', value: '3', text: '3'},
+      	{class: 'btn btn-success', value: '*', text: '*'}
       ],
       [
-      	{idx: 16, type: 'btn btn-default', value: '.'},
-      	{idx: 17, type: 'btn btn-default', value: '0'},
-      	{idx: 18, type: 'btn btn-default', value: '00'},
-      	{idx: 19, type: 'btn btn-primary', value: '='}
+      	{class: 'btn btn-default', value: '.', text: '.'},
+      	{class: 'btn btn-default', value: '0', text: '0'},
+      	{class: 'btn btn-default', value: '00', text: '00'},
+      	{class: 'btn btn-success', value: '/', text: '/'}
+      ],
+      [
+        {class: 'btn btn-primary btn-block', value: '=', text: '='}
       ]
     ]
   },
   methods: {
-    append: function (value) {
-      this.input += value
+    handleClick: function (value) {
+      if (value === '=') {
+        this.input = String(eval(this.input))
+      } else if (value === 'C') {
+        this.input = ''
+      } else if (value === 'D') {
+        this.input = this.input.substr(0, this.input.length - 1)
+      } else {
+        this.input += value
+      }
     }
   }
 })

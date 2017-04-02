@@ -8,3 +8,7 @@ div#app {
   font-weight: bold;
   font-size: 20px;
 }
+
+.btn-block {
+	width: 98%;
+}
