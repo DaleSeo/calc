@@ -14,40 +14,15 @@
       <div class="well">
         <div class="screen container-fluid">
           <div class="row">
-            <input type="text" class="form-control input-lg" v-model="result" />
+            <input type="text" class="form-control input-lg" v-model="input" />
           </div>
         </div>
         <div>&nbsp;</div>
         <div id="board" class="container-fluid">
-          <div class="row">
-            <button class="btn btn-danger">C</button>
-            <button class="btn btn-warning">(</button>
-            <button class="btn btn-warning">)</button>
-            <button class="btn btn-success">+</button>
-          </div>
-          <div class="row">
-            <button class="btn btn-default">7</button>
-            <button class="btn btn-default">8</button>
-            <button class="btn btn-default">9</button>
-            <button class="btn btn-success">-</button>
-          </div>
-          <div class="row">
-            <button class="btn btn-default">4</button>
-            <button class="btn btn-default">5</button>
-            <button class="btn btn-default">6</button>
-            <button class="btn btn-success">*</button>
-          </div>
-          <div class="row">
-            <button class="btn btn-default">1</button>
-            <button class="btn btn-default">2</button>
-            <button class="btn btn-default">3</button>
-            <button class="btn btn-success">/</button>
-          </div>
-          <div class="row">
-            <button class="btn btn-default">.</button>
-            <button class="btn btn-default">0</button>
-            <button class="btn btn-default">00</button>
-            <button class="btn btn-primary">=</button>
+          <div v-for="keys in keyGroups">
+            <div class="row">
+              <button v-for="key in keys" :class="key.type" @click="append(key.value)">{{key.value}}</button>
+            </div>
           </div>
         </div>
       </div>
