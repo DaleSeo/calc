@@ -1,0 +1,10 @@
+div#app {
+	width: 360px;
+}
+
+.btn {
+  width: 22%;
+  margin: 1%;
+  font-weight: bold;
+  font-size: 20px;
+}
