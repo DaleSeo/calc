@@ -54,27 +54,7 @@
     </div>
 
     <script src="https://unpkg.com/vue"></script>
-    <script src="key.js"></script>
-    <script>
-      var app = new Vue({
-        el: '#app',
-        data: {
-          result: ''
-        },
-        computed: {
-          full: {
-            get: function () {
-              return this.first + ' ' + this.last
-            },
-            set: function (value) {
-              let names = value.split(' ')
-              this.first = names[0]
-              this.last = names[names.length - 1]
-            }
-          }
-        }
-      })
-    </script>
+    <script src="script.js"></script>
   </body>
 
 </html>
